@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cact67mflvbnb"]
+
+[ext_resource type="Script" uid="uid://dig5oq823a0sj" path="res://scripts/curve.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://cvrpoig25f37a" path="res://scripts/line_2d.gd" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c0ynffu1uovn8" path="res://scenes/point_set.tscn" id="3_sugp2"]
+
+[sub_resource type="Curve2D" id="Curve2D_sugp2"]
+
+[node name="main" type="Node2D"]
+
+[node name="Curve" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sugp2")
+script = ExtResource("1_jyhfs")
+
+[node name="Line2D" type="Line2D" parent="Curve"]
+width = 1.0
+script = ExtResource("2_tbgi4")
+
+[node name="pointSet" parent="." instance=ExtResource("3_sugp2")]
+
+[node name="pointSet2" parent="." instance=ExtResource("3_sugp2")]

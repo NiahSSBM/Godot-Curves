@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0ynffu1uovn8"]
+
+[ext_resource type="Script" uid="uid://cp1w2gleacbys" path="res://scripts/point.gd" id="1_16fap"]
+[ext_resource type="Texture2D" uid="uid://iqr3cd4gbamk" path="res://assets/dot-black.png" id="2_l3o4d"]
+[ext_resource type="Texture2D" uid="uid://dtephnu2c5rva" path="res://assets/dot.png" id="3_heb53"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sugp2"]
+
+[node name="pointSet" type="Node" groups=["points"]]
+
+[node name="in" type="Node2D" parent="."]
+position = Vector2(588, 521)
+script = ExtResource("1_16fap")
+
+[node name="Dot-black" type="Sprite2D" parent="in"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_l3o4d")
+
+[node name="Area2D" type="Area2D" parent="in"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="in/Area2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_sugp2")
+
+[node name="out" type="Node2D" parent="."]
+position = Vector2(238, 247)
+script = ExtResource("1_16fap")
+
+[node name="Dot-black" type="Sprite2D" parent="out"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_l3o4d")
+
+[node name="Area2D" type="Area2D" parent="out"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="out/Area2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_sugp2")
+
+[node name="point" type="Node2D" parent="."]
+position = Vector2(944, 385)
+script = ExtResource("1_16fap")
+
+[node name="Dot" type="Sprite2D" parent="point"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_heb53")
+
+[node name="Area2D" type="Area2D" parent="point"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="point/Area2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_sugp2")
+
+[connection signal="input_event" from="in/Area2D" to="in" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="out/Area2D" to="out" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="point/Area2D" to="point" method="_on_area_2d_input_event"]
