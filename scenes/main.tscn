@@ -1,12 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cact67mflvbnb"]
 
 [ext_resource type="Script" uid="uid://dig5oq823a0sj" path="res://scripts/curve.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://bfbmtqwua1p7h" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrpoig25f37a" path="res://scripts/line_2d.gd" id="2_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://c0ynffu1uovn8" path="res://scenes/point_set.tscn" id="3_sugp2"]
 
 [sub_resource type="Curve2D" id="Curve2D_sugp2"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_tbgi4")
 
 [node name="Curve" type="Path2D" parent="."]
 curve = SubResource("Curve2D_sugp2")
@@ -16,6 +17,22 @@ script = ExtResource("1_jyhfs")
 width = 1.0
 script = ExtResource("2_tbgi4")
 
-[node name="pointSet" parent="." instance=ExtResource("3_sugp2")]
+[node name="removePointButton" type="Button" parent="."]
+offset_left = 917.0
+offset_top = 5.0
+offset_right = 1026.0
+offset_bottom = 59.0
+action_mode = 0
+text = "Remove
+"
 
-[node name="pointSet2" parent="." instance=ExtResource("3_sugp2")]
+[node name="addPointButton" type="Button" parent="."]
+offset_left = 1031.0
+offset_top = 5.0
+offset_right = 1147.0
+offset_bottom = 59.0
+action_mode = 0
+text = "Add"
+
+[connection signal="pressed" from="removePointButton" to="." method="remove_point"]
+[connection signal="pressed" from="addPointButton" to="." method="add_point"]
