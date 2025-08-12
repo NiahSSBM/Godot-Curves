@@ -20,6 +20,7 @@ func randomize_spawn():
 func update_point():
 	var label: Label = get_node("Label")
 	label.text = name + " " + str(get_parent().point_number)
+	label.z_index = 10
 	
 	if (name == "in" and get_parent().point_number == 1) or (name == "out" and get_parent().point_number == Globals.total_points):
 		queue_free()

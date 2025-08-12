@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cact67mflvbnb"]
+[gd_scene load_steps=6 format=3 uid="uid://cact67mflvbnb"]
 
 [ext_resource type="Script" uid="uid://dig5oq823a0sj" path="res://scripts/curve.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bfbmtqwua1p7h" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrpoig25f37a" path="res://scripts/line_2d.gd" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://sqob4xa00esx" path="res://scripts/grid.gd" id="4_jyhfs"]
 
 [sub_resource type="Curve2D" id="Curve2D_sugp2"]
 
@@ -33,6 +34,19 @@ offset_right = 1147.0
 offset_bottom = 59.0
 action_mode = 0
 text = "Add"
+
+[node name="gridSlider" type="HSlider" parent="."]
+offset_left = 782.655
+offset_top = 5.0
+offset_right = 908.655
+offset_bottom = 59.0
+tooltip_text = "Grid Size"
+min_value = 10.0
+max_value = 150.0
+value = 75.0
+
+[node name="Grid" type="Node" parent="."]
+script = ExtResource("4_jyhfs")
 
 [connection signal="pressed" from="removePointButton" to="." method="remove_point"]
 [connection signal="pressed" from="addPointButton" to="." method="add_point"]
