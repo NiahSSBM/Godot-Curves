@@ -1,17 +1,19 @@
 extends Node2D
 
 var is_grabbed: bool = false
-
-var dot_red: Resource = preload("res://assets/dot-red.png")
-var dot_black: Resource = preload("res://assets/dot-black.png")
+var circle_radius: float = 10
+var point_color: Color
 
 func _ready():
 	if name == "point":
-		get_node("Sprite2D").texture = dot_red
+		point_color = Globals.red_color
 	else:
-		get_node("Sprite2D").texture = dot_black
+		point_color = Globals.black_color
 	
 	randomize_spawn()
+
+func _draw():
+	draw_circle(Vector2.ZERO, circle_radius, point_color, true, -1.0, true)
 
 func randomize_spawn():
 	position.x = randi_range(get_viewport().size.x * 0.1, get_viewport().size.x * 0.9)
