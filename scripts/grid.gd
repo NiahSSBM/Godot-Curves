@@ -7,7 +7,7 @@ var color = Color.DIM_GRAY
 var slider: HSlider
 
 func _ready():
-	slider = get_node("../gridSlider")
+	slider = get_node("../UI/gridSlider")
 	
 	update_grid()
 

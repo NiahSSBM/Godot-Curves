@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cact67mflvbnb"]
+[gd_scene load_steps=7 format=3 uid="uid://cact67mflvbnb"]
 
 [ext_resource type="Script" uid="uid://dig5oq823a0sj" path="res://scripts/curve.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bfbmtqwua1p7h" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrpoig25f37a" path="res://scripts/line_2d.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://sqob4xa00esx" path="res://scripts/grid.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://r37sk2h653bk" path="res://scenes/ui.gd" id="4_tbgi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_sugp2"]
 
@@ -18,28 +19,32 @@ script = ExtResource("1_jyhfs")
 width = 1.0
 script = ExtResource("2_tbgi4")
 
-[node name="removePointButton" type="Button" parent="."]
-offset_left = 917.0
-offset_top = 5.0
-offset_right = 1026.0
-offset_bottom = 59.0
+[node name="UI" type="Node2D" parent="."]
+position = Vector2(974, 30)
+script = ExtResource("4_tbgi4")
+
+[node name="removePointButton" type="Button" parent="UI"]
+offset_left = -57.0
+offset_top = -25.0
+offset_right = 52.0
+offset_bottom = 29.0
 action_mode = 0
 text = "Remove
 "
 
-[node name="addPointButton" type="Button" parent="."]
-offset_left = 1031.0
-offset_top = 5.0
-offset_right = 1147.0
-offset_bottom = 59.0
+[node name="addPointButton" type="Button" parent="UI"]
+offset_left = 57.0
+offset_top = -25.0
+offset_right = 173.0
+offset_bottom = 29.0
 action_mode = 0
 text = "Add"
 
-[node name="gridSlider" type="HSlider" parent="."]
-offset_left = 782.655
-offset_top = 5.0
-offset_right = 908.655
-offset_bottom = 59.0
+[node name="gridSlider" type="HSlider" parent="UI"]
+offset_left = -191.345
+offset_top = -25.0
+offset_right = -65.345
+offset_bottom = 29.0
 tooltip_text = "Grid Size"
 min_value = 10.0
 max_value = 150.0
@@ -48,5 +53,5 @@ value = 75.0
 [node name="Grid" type="Node" parent="."]
 script = ExtResource("4_jyhfs")
 
-[connection signal="pressed" from="removePointButton" to="." method="remove_point"]
-[connection signal="pressed" from="addPointButton" to="." method="add_point"]
+[connection signal="pressed" from="UI/removePointButton" to="." method="remove_point"]
+[connection signal="pressed" from="UI/addPointButton" to="." method="add_point"]
