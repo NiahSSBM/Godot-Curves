@@ -1,15 +1,13 @@
 extends Node
 
 var grid_spacing: float = 75
-var line_width = 4
+var line_width
 var color = Color.DIM_GRAY
 
 var slider: HSlider
 
 func _ready():
 	slider = get_node("../UI/gridSlider")
-	
-	update_grid()
 
 func update_grid():
 	for node in get_children():
@@ -40,3 +38,9 @@ func _process(delta):
 	if slider.value_changed:
 		grid_spacing = slider.value
 		update_grid()
+
+
+func _on_main_ready():
+	line_width = ceil(4 * Globals.global_scale)
+		
+	update_grid()

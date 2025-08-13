@@ -20,31 +20,31 @@ width = 1.0
 script = ExtResource("2_tbgi4")
 
 [node name="UI" type="Node2D" parent="."]
-position = Vector2(974, 30)
+position = Vector2(975, 0)
 script = ExtResource("4_tbgi4")
 
 [node name="removePointButton" type="Button" parent="UI"]
-offset_left = -57.0
-offset_top = -25.0
-offset_right = 52.0
-offset_bottom = 29.0
+offset_left = -58.0
+offset_top = 5.0
+offset_right = 51.0
+offset_bottom = 59.0
 action_mode = 0
 text = "Remove
 "
 
 [node name="addPointButton" type="Button" parent="UI"]
-offset_left = 57.0
-offset_top = -25.0
-offset_right = 173.0
-offset_bottom = 29.0
+offset_left = 56.0
+offset_top = 5.0
+offset_right = 172.0
+offset_bottom = 59.0
 action_mode = 0
 text = "Add"
 
 [node name="gridSlider" type="HSlider" parent="UI"]
-offset_left = -191.345
-offset_top = -25.0
-offset_right = -65.345
-offset_bottom = 29.0
+offset_left = -192.345
+offset_top = 5.0
+offset_right = -66.345
+offset_bottom = 59.0
 tooltip_text = "Grid Size"
 min_value = 10.0
 max_value = 150.0
@@ -53,5 +53,7 @@ value = 75.0
 [node name="Grid" type="Node" parent="."]
 script = ExtResource("4_jyhfs")
 
+[connection signal="ready" from="." to="UI" method="_on_main_ready"]
+[connection signal="ready" from="." to="Grid" method="_on_main_ready"]
 [connection signal="pressed" from="UI/removePointButton" to="." method="remove_point"]
 [connection signal="pressed" from="UI/addPointButton" to="." method="add_point"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 var is_grabbed: bool = false
-var circle_radius: float = 10
+var circle_radius: float = ceil(10 * Globals.global_scale)
 var point_color: Color
 
 func _ready():

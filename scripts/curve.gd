@@ -2,9 +2,6 @@ extends Path2D
 
 var points: Array[Node]
 
-func _ready():
-	pass
-
 func update_points():
 	points = get_tree().get_nodes_in_group("points")
 	Globals.total_points = points.size()
