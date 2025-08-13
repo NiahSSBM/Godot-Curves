@@ -46,12 +46,16 @@ offset_top = 5.0
 offset_right = -66.345
 offset_bottom = 59.0
 tooltip_text = "Grid Size"
-min_value = 10.0
+min_value = 25.0
 max_value = 150.0
 value = 75.0
 
 [node name="Grid" type="Node" parent="."]
 script = ExtResource("4_jyhfs")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="ready" from="." to="UI" method="_on_main_ready"]
 [connection signal="ready" from="." to="Grid" method="_on_main_ready"]

@@ -1,7 +1,7 @@
 extends Node
 
-var grid_spacing: float = 75
-var line_width
+var grid_spacing: float
+var line_width: float
 var color = Color.DIM_GRAY
 
 var slider: HSlider
@@ -42,5 +42,6 @@ func _process(delta):
 
 func _on_main_ready():
 	line_width = ceil(4 * Globals.global_scale)
-		
+	grid_spacing = ceil(75 * Globals.global_scale)
+	
 	update_grid()

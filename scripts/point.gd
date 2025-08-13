@@ -3,12 +3,20 @@ extends Node2D
 var is_grabbed: bool = false
 var circle_radius: float = ceil(10 * Globals.global_scale)
 var point_color: Color
+var label: Label
 
 func _ready():
 	if name == "point":
 		point_color = Globals.red_color
 	else:
 		point_color = Globals.black_color
+	
+	label = get_node("Label")
+	label.scale *= Globals.global_scale
+	label.position *= Globals.global_scale
+	label.z_index = 10
+	
+	get_node("./Area2D/CollisionShape2D").scale *= Globals.global_scale
 	
 	randomize_spawn()
 
@@ -20,10 +28,8 @@ func randomize_spawn():
 	position.y = randi_range(get_viewport().size.y * 0.1, get_viewport().size.y * 0.9)
 
 func update_point():
-	var label: Label = get_node("Label")
 	label.text = name + " " + str(get_parent().point_number)
-	label.z_index = 10
-	
+
 	if (name == "in" and get_parent().point_number == 1) or (name == "out" and get_parent().point_number == Globals.total_points):
 		queue_free()
 
