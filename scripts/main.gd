@@ -4,8 +4,8 @@ var point_res = preload("res://scenes/point_set.tscn")
 var base_window_size = Vector2(1152, 648)
 
 func _ready():
-	var vec2_size_ratio = (get_viewport().size) as Vector2 / base_window_size
-	Globals.global_scale = (vec2_size_ratio.x + vec2_size_ratio.y) / 2
+	var size_ratio = (get_viewport().size) as Vector2 / base_window_size
+	Globals.global_scale = size_ratio.x if size_ratio.x < size_ratio.y else size_ratio.y
 
 func add_point():
 	var new_point = point_res.instantiate()
