@@ -1,9 +1,6 @@
 extends Node2D
 
-var ui_offset_x: int
-
-func _ready():
-	ui_offset_x = position.x - get_window().size.x
+var ui_offset_x: int = -180
 
 func _process(delta):
 	if get_window().size_changed:
