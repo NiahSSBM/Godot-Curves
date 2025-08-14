@@ -5,6 +5,7 @@ var target_point: Node2D
 func _ready():
 	width = ceil(2 * Globals.global_scale)
 	default_color = Color(Color.BLUE, 0.5)
+	z_index = -6
 	
 	target_point = get_node("../../point")
 

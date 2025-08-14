@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bfbmtqwua1p7h" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://cvrpoig25f37a" path="res://scripts/line_2d.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://sqob4xa00esx" path="res://scripts/grid.gd" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://r37sk2h653bk" path="res://scenes/ui.gd" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://r37sk2h653bk" path="res://scripts/ui.gd" id="4_tbgi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_sugp2"]
 
